@@ -1,0 +1,61 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+    
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+            <h1>Edit Your Listing</h1>
+            
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name = "listing[title]"  class="form-control" placeholder="Enter title" value="<%= listing.title %>" required />
+        <div class="invalid-feedback">Please enter a title.</div>
+        <div class="valid-feedback">Title looks Good!</div>
+        </div>
+
+        <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" placeholder="enter description" class="form-control" required><%= listing.description %></textarea>
+        <div class="invalid-feedback">Please enter a description.</div>
+        <div class="valid-feedback">Description looks Good!</div>
+        </div>
+
+    <div class="mb-3">
+  <label for="imageFile" class="form-label"> Upload New Image </label>
+  <input type="file" name="image" class="form-control"/>
+
+  <!-- Hidden field for filename, required by Joi and MongoDB schema -->
+</div>
+
+
+        <div class="row">
+        <div class="mb-3 col-4">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" name="listing[price]" placeholder=" enter price" value="<%= listing.price %>" class="form-control" required/>
+        <div class="invalid-feedback">Please enter a valid price.</div>
+        <div class="valid-feedback">Price looks Good!</div>
+        </div>
+
+        <div class="mb-3 col-8">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" placeholder=" enter location" value="<%= listing.location %>" class="form-control" required/>
+        <div class="invalid-feedback">Please enter a location.</div>
+        <div class="valid-feedback">Location looks Good!</div>
+        </div>
+        </div>
+
+        <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" placeholder="enter country" value="<%= listing.country %>" class="form-control" required/>
+        <div class="invalid-feedback">Please enter a country.</div>
+        <div class="valid-feedback">Country looks Good!</div>
+        </div>
+
+        <button type="submit" class="btn btn-dark edit-btn mt-3">Edit</button>
+        <br><br>
+    </form>
+    </div>
+    </div>
+</body>
